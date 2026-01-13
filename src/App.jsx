@@ -13,17 +13,19 @@ const App = () => {
   const [heroCount, setHeroCount] = useState(0);
   const [playStatus, setPlayStatus] = useState(false);
 
-  useEffect(()=> {
+  useEffect(() => {
     setInterval(() => {
-      setHeroCount((count)=> {return count===2?0:count+1})
+      setHeroCount((count) => {
+        return count === 2 ? 0 : count + 1;
+      });
     }, 3000);
-  },[])
+  }, []);
 
   return (
     <div>
       <Background playStatus={playStatus} heroCount={heroCount} />
       <Navbar />
-      <Hero 
+      <Hero
         setPlayStatus={setPlayStatus}
         heroData={heroData[heroCount]}
         heroCount={heroCount}
